@@ -1,0 +1,8 @@
+# Workspace / non-project files
+.workspace/
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
