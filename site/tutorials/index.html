@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" data-i18n-title="tutorials_heroTitle">
+<head>
+    <meta charset="UTF-8" />
+    <title>Tutorials — QarzDaftar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Step-by-step video tutorials for QarzDaftar: overview, accounts & transactions, and cloud backup." />
+
+    <!-- Google site verification (placeholder) -->
+    <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" /> -->
+
+    <link rel="icon" href="../assets/img/app-icon.webp" type="image/webp" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+
+    <!-- Navigation (back to main site) -->
+    <nav class="page-nav container">
+        <a href="../index.html" class="page-nav__back">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            <span data-i18n="backToQarzDaftar"></span>
+        </a>
+    </nav>
+
+    <!-- Hero -->
+    <header class="page-hero container">
+        <span class="page-hero__badge" style="background:#0f76te;">📒 QarzDaftar</span>
+        <h1 class="page-hero__title"><span data-i18n="tutorials_heroTitle"></span></h1>
+        <p class="page-hero__project"><span data-i18n="tutorials_heroSubtitle"></span></p>
+    </header>
+
+    <!-- Tutorial Videos -->
+    <main class="container">
+        <div id="tutorials-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr)); gap:1.5rem; padding:2rem 0 4rem;"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        &copy; 2026 Islomov Odilhon Rustamovich. All rights reserved.<br />
+        <span data-i18n="footer_supportLabel"></span> <a href="mailto:odilhon1985@gmail.com">odilhon1985@gmail.com</a>
+    </footer>
+
+    <!-- Inline styles (tutorials page) -->
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f8f9fb;
+            color: #1a1a2e;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: #0f76te;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Nav */
+        .page-nav {
+            padding: 1rem 0;
+        }
+
+        .page-nav__back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #64748b;
+        }
+
+        .page-nav__back:hover {
+            color: #0f76te;
+        }
+
+        .page-nav__back svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Hero */
+        .page-hero {
+            padding: 2.5rem 0 1.5rem;
+            text-align: center;
+        }
+
+        .page-hero__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .page-hero__title {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            font-weight: 800;
+            letter-spacing: -0.015em;
+            margin-bottom: 0.25rem;
+        }
+
+        .page-hero__project {
+            font-size: 1rem;
+            color: #64748b;
+        }
+
+        /* Tutorial cards */
+        .tutorial-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 6px 16px rgba(0,0,0,0.04);
+            transition: box-shadow 0.25s cubic-bezier(0.4,0,0.2,1), transform 0.25s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .tutorial-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 12px 32px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+        }
+
+        .tutorial-card__video {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 */
+            background: #000;
+        }
+
+        .tutorial-card__video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .tutorial-card__body {
+            padding: 1.15rem 1.25rem;
+        }
+
+        .tutorial-card__title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            line-height: 1.4;
+        }
+
+        .tutorial-card__description {
+            font-size: 0.875rem;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: auto;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
+            padding: 2rem 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .site-footer a {
+            color: #0f76te;
+            font-weight: 500;
+        }
+
+        /* Mobile */
+        @media (max-width: 640px) {
+            #tutorials-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.25rem !important;
+                padding: 1.5rem 0 3rem !important;
+            }
+
+            .tutorial-card__body {
+                padding: 1rem;
+            }
+
+            .page-hero {
+                padding: 1.5rem 0 1rem;
+            }
+        }
+    </style>
+
+    <!-- i18n script (v=3 to force reload) -->
+    <script src="../assets/js/i18n.js?v=3"></script>
+
+    <!-- Tutorials dynamic content with i18n support -->
+    <script>
+        (function () {
+            const grid = document.getElementById('tutorials-grid');
+            if (!grid) return;
+
+            // Video list: IDs and translation keys
+            const videos = [
+                {
+                    youtubeId: "Bw4rSLz2SvU",
+                    titleKey: "tutorial1_title",
+                    descKey: "tutorial1_desc"
+                },
+                {
+                    youtubeId: "fm4E_e-0oTo",
+                    titleKey: "tutorial2_title",
+                    descKey: "tutorial2_desc"
+                },
+                {
+                    youtubeId: "leJDQyB5kcU",
+                    titleKey: "tutorial3_title",
+                    descKey: "tutorial3_desc"
+                }
+            ];
+
+            // Safe translation helper
+            function getT(key) {
+                try {
+                    if (window.QD_I18N && typeof window.QD_I18N.t === 'function') {
+                        var val = window.QD_I18N.t(key);
+                        if (val && String(val).trim() !== '') return val;
+                    }
+                } catch (e) { /* ignore */ }
+                // Fallback: use key itself so content is never empty
+                return key;
+            }
+
+            // Escape HTML for text nodes to avoid breaking layout
+            function esc(str) {
+                var s = String(str);
+                return s.replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;');
+            }
+
+            // Render all tutorial cards
+            function renderTutorials() {
+                grid.innerHTML = '';
+
+                videos.forEach(function (v) {
+                    var title = getT(v.titleKey);
+                    var desc  = getT(v.descKey);
+
+                    var card = document.createElement('div');
+                    card.className = 'tutorial-card';
+
+                    // Build HTML for each card
+                    card.innerHTML =
+                        '<div class="tutorial-card__video">' +
+                            '<iframe'
+                                + ' src="https://www.youtube-nocookie.com/embed/' + v.youtubeId + '"'
+                                + ' title="' + esc(title) + '"'
+                                + ' allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"'
+                                + ' allowfullscreen'
+                                + ' loading="lazy">'
+                            + '</iframe>'
+                        + '</div>'
+                        + '<div class="tutorial-card__body">'
+                            + '<h3 class="tutorial-card__title">' + esc(title) + '</h3>'
+                            + '<p class="tutorial-card__description">' + esc(desc) + '</p>'
+                        + '</div>';
+
+                    grid.appendChild(card);
+                });
+            }
+
+            // Initialize: wait for QD_I18N, then render and subscribe to language changes
+            function init() {
+                if (window.QD_I18N && typeof window.QD_I18N.t === 'function') {
+                    // Small delay to ensure translations are fully loaded
+                    setTimeout(function () {
+                        renderTutorials();
+
+                        // Update cards instantly when user switches language
+                        window.QD_I18N.onLangChange(renderTutorials);
+                    }, 50);
+                } else {
+                    // If i18n not ready yet, try again; fallback after a short time
+                    setTimeout(function () {
+                        if (!window.QD_I18N) {
+                            renderTutorials();
+                        } else {
+                            init();
+                        }
+                    }, 100);
+                }
+            }
+
+            // Start initialization
+            init();
+        })();
+    </script>
+</body>
+</html>
