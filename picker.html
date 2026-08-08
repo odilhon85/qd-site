@@ -92,8 +92,8 @@ function loadPicker(){
   }
 
   // Use the Android app's token (same OAuth client) so access is registered correctly under drive.file.
+  // Do NOT restrict to a single folderId; let user select the shared folder from Drive.
   var view=new google.picker.DocsView(google.picker.ViewId.FOLDERS)
-      .setFileIds(folderId)
       .setSelectFolderEnabled(true);
 
   var picker=new google.picker.PickerBuilder()
